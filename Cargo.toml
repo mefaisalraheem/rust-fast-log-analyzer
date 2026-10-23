@@ -1,0 +1,31 @@
+[package]
+name = "fast-log-analyzer"
+version = "0.1.0"
+edition = "2021"
+description = "Fast Rust log analyzer: parse, group, and search logs efficiently"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/mefaisalraheem/rust-fast-log-analyzer"
+keywords = ["log", "analyzer", "cli", "performance"]
+categories = ["command-line-utilities", "parsing"]
+
+[lib]
+name = "fast_log_analyzer"
+path = "src/lib.rs"
+
+[[bin]]
+name = "log-analyzer"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+thiserror = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+tempfile = "3"
+
+[[bench]]
+name = "parse_bench"
+harness = false
